@@ -61,6 +61,8 @@ sudo qemu-system-x86_64 -drive file=linux.img,index=0,media=disk,format=raw -m 4
 make clean
 ```
 
-*** issue ***
+## known issue
+
 변환한 이미지로 root/root 로 로그인을 시도하면 약간의 시간이 걸린 후 프롬프트가 나타남.
+
 `unmimize` 명령으로 컨테이너를 위해 압축된 패키지를 라이브용으로 전환 가능
