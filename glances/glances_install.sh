@@ -57,6 +57,7 @@ if [[ $distrib_name == "ubuntu" || $distrib_name == "Hamonikr" || $distrib_name 
     #do_with_root apt-get -y update
 
     # Install prerequirements
+    do_with_root apt-get update
     do_with_root apt-get install -y python3-pip python3-dev python3-docker gcc lm-sensors wireless-tools
 
 elif [[ $distrib_name == "redhat" ||  $distrib_name == "RedHatEnterprise" ||  $distrib_name == "RedHatEnterpriseServer" || $distrib_name == "centos" || $distrib_name == "fedora" || $distrib_name == "Scientific" ]]; then
