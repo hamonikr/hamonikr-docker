@@ -47,7 +47,8 @@ wget -qO- https://pkg.hamonikr.org/add-hamonikr-5.0-hanla.apt | bash -
 $minimal_apt_get_install hamonikr-info
 $minimal_apt_get_install base-files
 $minimal_apt_get_install hamonikr-ff
-$minimal_apt_get_install glances
+$minimal_apt_get_install net-tools
+wget -qO- https://raw.githubusercontent.com/hamonikr/hamonikr-docker/master/glances/glances_install.sh | bash -
 
 # node exporter TCP/9100
 # wget -O - https://raw.githubusercontent.com/hamonikr/hamonikr-docker/master/node_exporter/agent-setup.sh | bash

@@ -4,6 +4,10 @@ FROM $BASE_IMAGE
 ARG QEMU_ARCH
 ADD x86_64_qemu-${QEMU_ARCH}-static.tar.gz /usr/bin
 
+RUN mkdir -p /etc/my_init.d
+COPY 01_run_glances.sh /etc/my_init.d/
+RUN chmod +x /etc/my_init.d/01_run_glances.sh
+
 COPY . /bd_build
 
 RUN /bd_build/prepare.sh && \
