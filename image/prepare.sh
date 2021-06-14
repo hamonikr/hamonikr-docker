@@ -47,7 +47,10 @@ wget -qO- https://pkg.hamonikr.org/add-hamonikr-5.0-hanla.apt | bash -
 $minimal_apt_get_install hamonikr-info
 $minimal_apt_get_install base-files
 $minimal_apt_get_install hamonikr-ff
+$minimal_apt_get_install glances
 
+# node exporter TCP/9100
+# wget -O - https://raw.githubusercontent.com/hamonikr/hamonikr-docker/master/node_exporter/agent-setup.sh | bash
 
 ## Upgrade all packages.
 apt-get dist-upgrade -y --no-install-recommends -o Dpkg::Options::="--force-confold"

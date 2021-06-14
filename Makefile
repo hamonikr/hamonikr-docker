@@ -1,4 +1,4 @@
-VERSION ?= 2.0
+VERSION ?= latest
 ifdef BASE_IMAGE
 	BUILD_ARG = --build-arg BASE_IMAGE=$(BASE_IMAGE)
 	ifndef NAME
