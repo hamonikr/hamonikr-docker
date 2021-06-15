@@ -42,11 +42,18 @@ $minimal_apt_get_install apt-transport-https ca-certificates
 $minimal_apt_get_install software-properties-common
 
 ## Install HamoniKR OS APT and core packages
-$minimal_apt_get_install wget gpg-agent locales
+$minimal_apt_get_install wget gpg-agent locales net-tools
 wget -qO- https://pkg.hamonikr.org/add-hamonikr-5.0-hanla.apt | bash -
 $minimal_apt_get_install hamonikr-info
 $minimal_apt_get_install base-files
 $minimal_apt_get_install hamonikr-ff
+$minimal_apt_get_install htop
+# zsh
+$minimal_apt_get_install git powerline fonts-powerline zsh-theme-powerlevel9k python3-powerline
+echo "export TERM=xterm-256color"  >> "/root/.zshrc"
+echo "source /usr/share/powerlevel9k/powerlevel9k.zsh-theme" >> "/root/.zshrc"
+# $minimal_apt_get_install openssh-server
+# $minimal_apt_get_install dpkg-sig make nginx-extras reprepro xz-utils 
 
 # node exporter TCP/9100
 # wget -O - https://raw.githubusercontent.com/hamonikr/hamonikr-docker/master/node_exporter/agent-setup.sh | bash
@@ -56,7 +63,7 @@ apt-get dist-upgrade -y --no-install-recommends -o Dpkg::Options::="--force-conf
 
 ## Fix locale.
 case $(lsb_release -is) in
-  Ubuntu)
+  Ubuntu|Hamonikr)
     $minimal_apt_get_install language-pack-en
     ;;
   Debian)
@@ -67,6 +74,7 @@ case $(lsb_release -is) in
 esac
 dpkg-reconfigure -f noninteractive locales
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+echo "ko_KR.UTF-8 UTF-8" >> /etc/locale.gen
 echo "en_US.UTF-8 UTF-8" > /etc/default/locale
 locale-gen
 echo -n en_US.UTF-8 > /etc/container_environment/LANG
