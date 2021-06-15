@@ -4,7 +4,7 @@
 ## 사용법
 ```
 # Run container
-docker run hamonikr/server
+docker run hamonikr/server:2.0
 
 # run zsh in docker container
 docker run -it hamonikr/server /bin/zsh
